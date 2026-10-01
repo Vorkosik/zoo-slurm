@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zoo-slurm-runner"
+version = "0.1.0"
+description = "ZOO-Project DRU runner that executes CWL Application Packages as Slurm jobs through slurmrestd"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+# Versions as found in zooproject/zoo-project:dru-19f3c4eed7c9ec9d1f0375bbe59f9d204a42bd3a
+dependencies = [
+    "zoo-runner-common==0.1.3",
+    "zoo_calrissian_runner==0.4.0",  # wrap() with stage-in and stage-out is reused from here
+    "requests>=2.31",
+    "boto3>=1.35",
+    "PyJWT>=2.8",
+    "PyYAML>=6",
+    "loguru>=0.7",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[tool.setuptools]
+packages = ["zoo_slurm_runner"]
